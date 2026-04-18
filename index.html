@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AP Bluebook Practice Simulator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>AP Bluebook Practice Simulator</h1>
+      <p>Upload a practice PDF and navigate it like a Bluebook-style exam.</p>
+    </header>
+
+    <section class="controls">
+      <label class="file-input">
+        <span>Upload practice PDF</span>
+        <input id="pdfInput" type="file" accept="application/pdf" />
+      </label>
+
+      <div class="control-group">
+        <button id="prevBtn" disabled>Previous</button>
+        <button id="nextBtn" disabled>Next</button>
+      </div>
+
+      <div class="control-group">
+        <button id="zoomOutBtn" disabled>Zoom -</button>
+        <button id="zoomInBtn" disabled>Zoom +</button>
+      </div>
+
+      <div class="control-group">
+        <label for="questionPicker">Go to question:</label>
+        <select id="questionPicker" disabled></select>
+      </div>
+
+      <div class="status" id="status">Upload a PDF to begin.</div>
+    </section>
+
+    <main class="exam-layout">
+      <section class="panel stimulus-panel">
+        <h2>Stimulus</h2>
+        <canvas id="pdfCanvas"></canvas>
+      </section>
+
+      <section class="panel question-panel">
+        <div class="question-header">
+          <h2 id="questionTitle">Question</h2>
+          <div class="question-actions">
+            <button id="crossOutQuestionBtn" disabled>Cross out question</button>
+            <button id="markReviewBtn" disabled>Mark for review</button>
+          </div>
+        </div>
+
+        <article id="questionCard" class="question-card">
+          <p id="questionStem">Your parsed question will appear here.</p>
+          <div id="answers" class="answers"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.2.67/pdf.min.mjs" type="module"></script>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
